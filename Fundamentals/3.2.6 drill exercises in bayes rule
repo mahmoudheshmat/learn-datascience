@@ -1,8 +1,8 @@
 Scenario: Diagnostic test as 98% probability of a positive result with someone suffering T-disease and 10% chance of giving a false positive. estimated T-disease in 0.5% of population
 
 Intuitions:
-- the test will be positive close to 0.55% of the time if given to everyone in population
-- the test will correctly diagnose a sufferer < 10% of the time
+- the test will be positive close to 10% of the time if given to everyone in population
+- the test will correctly diagnose a sufferer 98% of the time
 - the test will correctly identify a non-sufferer roughly 90% of the time
 - the test will misclassify a person close to 10% of the time
 
