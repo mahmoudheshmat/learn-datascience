@@ -29,5 +29,6 @@ P(true negative test result) = 90%, as stated in prompt
 
 P(mis-classify the person) = (0.02*0.005 + 0.10*0.995)
 	= 0.996
-	- why can't I subtract true pos + true neg from 1? this would leave all false results behind
-		- you can. i forgot to multiply by population %
+	- can also do:
+	
+	= 1 - (true positive + true negative) = 1 - ((.98 * .005) + (.90 * .995)) = 0.996
