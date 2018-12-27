@@ -1,0 +1,40 @@
+Drills
+
+
+
+    What was the hottest day in our data set? Where was that?
+
+- The hottest day was on 11/17/2015 with max temperature at 134 degrees farenheit, occurring within zipcode 94063
+
+- SQL query
+SELECT
+	date,
+	zip,
+	maxtemperaturef
+FROM
+	weather
+ORDER BY maxtemperaturef DESC;
+
+
+
+
+    How many trips started at each station?
+
+- Too long a table to display here,
+
+-SQL query
+SELECT
+	start_station,
+	COUNT(*) as station_count
+FROM
+	trips
+GROUP by 1
+ORDER BY 2 DESC;
+
+
+
+
+    What's the shortest trip that happened?
+    
+
+    What is the average trip duration, by end station?
