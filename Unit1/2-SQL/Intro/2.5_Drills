@@ -28,7 +28,8 @@ JOIN
 	rain r
 ON
 	t.start_date::date = r.date::date;
-
+ORDER BY duration DESC
+LIMIT 3
 
 
     Which station is full most often?
