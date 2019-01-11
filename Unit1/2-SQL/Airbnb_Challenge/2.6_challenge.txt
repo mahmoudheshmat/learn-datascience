@@ -1,0 +1,56 @@
+
+    What's the most expensive listing? What else can you tell me about the listing?
+    
+    - The most expensive listings are tied at $10,000 per night in the neighborhoods of Ocean Beach and Core. It's for the entire home and they are available for 143 out of 365 days of the year.
+
+    -SQL query:
+SELECT
+	*
+FROM
+	listings
+ORDER BY price DESC
+LIMIT 5
+
+
+
+
+
+    What neighborhoods seem to be the most popular?
+
+    - Mission Bay is by far the most popular neighborhood, with 1458 listings. Second place runner up is Pacific Beach at 1029 listings. The next highest has 800 listings in La Jolla.
+
+    -SQL query:
+ SELECT
+ 	neighbourhood,
+ 	COUNT(*)
+ FROM
+ 	listings
+ GROUP BY 1
+ ORDER BY count DESC
+
+
+
+
+
+    What time of year is the cheapest time to go to your city? What about the busiest?
+    
+    - Airbnb says 70% of visits result in a listing review. To calculate total review:
+    	Estimated total stay = # Reviews / 0.70
+
+    - thought process for 1) there is no time-dependent listing price data (just that of the most recent scraping); instead, consider the least busy time of year because that will lead to more options for cheaper fares
+    -The month that would be easiest to get cheaper fares is in January, where there are 4841 reviews, or approximately 6916 bookings. This is the lowest bookings by month, therefore, there is a greater chance a visitor can get the best rates - especially if hosts are willing to offer discounts.
+
+    -SQL Query:
+SELECT
+    EXTRACT(MONTH FROM date),
+    Count(*)
+FROM 
+    reviews
+WHERE date BETWEEN '2017-01-01' AND '2017-12-31'
+GROUP BY 1
+ORDER BY count DESC
+
+
+    - thought process for 2) count the amount of reviews in each month.
+    - July is the most popular with 12403 reviews, or approximately 17719 total reviews. August is a close second with 10688 reivews and 15269 estimated total reviews.
+
