@@ -34,6 +34,31 @@ LIMIT 5
 
     What time of year is the cheapest time to go to your city? What about the busiest?
     
+    ***Using calendar.csv***
+    - 1) After combining the years by month, January appears to be the cheapest time to go to Portland at an average of $103/night.
+    - SQL query
+SELECT
+    AVG(price::numeric),
+    EXTRACT(MONTH FROM date)
+FROM
+    calendar
+GROUP BY 2
+ORDER BY AVG ASC
+
+    - 2) The busiest time of year would be when there are less listings marked as "available"
+    - I hesitate to trust this data because it only provides date for the future, and I don't believe 11/2019 has less listings marked as available because visitors have already booked their stay. In any case, if there was better prior data from last year, I would use the following query.
+    - SQL query
+SELECT 
+    to_char(date, 'YYYY-MM'),
+    COUNT(*)
+FROM
+    calendar
+WHERE available='t'
+GROUP BY 1
+ORDER BY count DESC
+
+
+    ***Using just the listings.csv***
     - Airbnb says 70% of visits result in a listing review. To calculate total review:
     	Estimated total stay = # Reviews / 0.70
 
